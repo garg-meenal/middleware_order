@@ -1,0 +1,19 @@
+syntax = "proto3";
+package com.middleware.order.proto;
+
+message OrderRequest {
+	int32 productId = 1;
+	string productName = 2;
+	string productColor = 3;
+	string productDescription = 4;
+	double productPrice = 5;   
+}
+
+message OrderResponse {
+	string message = 1;
+}
+
+service OrderService{
+	rpc placeOrder(OrderRequest) returns (OrderResponse);
+	rpc updateOrder(OrderRequest) returns (OrderResponse);
+}
